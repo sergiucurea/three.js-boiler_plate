@@ -1,0 +1,24 @@
+{
+  "name": "three.js-boiler_plate",
+  "version": "1.0.0",
+  "description": "This is my three.js starting template 4 my projects",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergiucurea/three.js-boiler_plate.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sergiucurea/three.js-boiler_plate/issues"
+  },
+  "homepage": "https://github.com/sergiucurea/three.js-boiler_plate#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "three": "^0.127.0"
+  }
+}
