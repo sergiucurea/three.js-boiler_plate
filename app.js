@@ -1,15 +1,20 @@
 const express = require("express");
+const webpack = require("webpack");
+const webpackDevMiddleware = require("webpack-dev-middleware");
+
 const app = express();
-const path = require("path");
+const config = require("./webpack.config.js");
+const compiler = webpack(config);
 
-app.use(express.static(__dirname + "/public"));
+// Tell express to use the webpack-dev-middleware and use the webpack.config.js
+// configuration file as a base.
 app.use(
-  "/build",
-  express.static(path.join(__dirname, "node_modules/three/build"))
-);
-app.use(
-  "/jsm/",
-  express.static(path.join(__dirname, "node_modules/three/examples/jsm"))
+  webpackDevMiddleware(compiler, {
+    publicPath: config.output.publicPath,
+  })
 );
 
-app.listen(3000, () => console.log("Server starting on http://localhost:3000"));
+// Serve the files on port 3000.
+app.listen(3000, function () {
+  console.log("app dlistening on port 3000!\n");
+});
